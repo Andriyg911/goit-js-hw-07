@@ -1,19 +1,12 @@
-.галерея {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-}
+// Отримуємо посилання на елементи
+const nameInput = document.querySelector("#name-input");
+const nameOutput = document.querySelector("#name-output");
 
-.gallery-item {
-  flex: 1 1 calc(33.33% - 10px);
-  max-width: calc(33.33% - 10px);
-}
+// Додаємо обробник події input
+nameInput.addEventListener("input", () => {
+  // Очищаємо значення від зайвих пробілів
+  const trimmedValue = nameInput.value.trim();
 
-.gallery-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-}
+  // Якщо інпут порожній або містить тільки пробіли, встановлюємо "Anonymous"
+  nameOutput.textContent = trimmedValue ? trimmedValue : "Anonymous";
+});

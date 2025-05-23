@@ -1,13 +1,26 @@
+// Отримуємо посилання на форму
+const loginForm = document.querySelector(".форма-входу");
 
-// Отримуємо елементи інпуту та спану
-const nameInput = document.querySelector("#name-input");
-const nameOutput = document.querySelector("#name-output");
+loginForm.addEventListener("submit", (event) => {
+  event.preventDefault(); // Запобігаємо перезавантаженню сторінки
 
-// Додаємо слухач події input
-nameInput.addEventListener("input", () => {
-  // Очищуємо значення від пробілів на початку та в кінці
-  const trimmedValue = nameInput.value.trim();
-  
-  // Перевіряємо, чи інпут порожній або містить лише пробіли
-  nameOutput.textContent = trimmedValue ? trimmedValue : "Анонім";
+  // Отримуємо значення полів
+  const email = loginForm.elements["електронна пошта"].value.trim();
+  const password = loginForm.elements["пароль"].value.trim();
+
+  // Перевіряємо, чи всі поля заповнені
+  if (!email || !password) {
+    alert("All form fields must be filled in");
+    return;
+  }
+
+  // Формуємо об'єкт з даними користувача
+  const userData = {
+    "електронна пошта": email,
+    "пароль": password
+  };
+
+  console.log(userData); // Виводимо в консоль
+
+  loginForm.reset(); // Очищаємо форму
 });

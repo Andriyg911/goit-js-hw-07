@@ -26,3 +26,21 @@ loginForm.addEventListener("submit", (event) => {
   // Очищуємо форму
   loginForm.reset();
 });
+// Функція генерації випадкового HEX-кольору
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, "0")}`;
+}
+
+// Отримуємо елементи
+const changeColorButton = document.querySelector(".change-color");
+const colorSpan = document.querySelector(".color");
+
+// Додаємо обробник події на кнопку
+changeColorButton.addEventListener("click", () => {
+  const randomColor = getRandomHexColor(); // Генеруємо новий колір
+
+  document.body.style.backgroundColor = randomColor; // Змінюємо фон <body>
+  colorSpan.textContent = randomColor; // Відображаємо значення кольору в <span>
+});

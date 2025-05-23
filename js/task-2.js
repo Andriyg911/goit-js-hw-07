@@ -27,7 +27,7 @@
 
 
 // Отримуємо список галереї
-const gallery = document.querySelector(".галерея");
+const gallery = document.querySelector(".gallery");
 
 // Створюємо розмітку для всіх зображень за допомогою шаблонних рядків
 const galleryMarkup = images.map(({ url, alt }) => 
